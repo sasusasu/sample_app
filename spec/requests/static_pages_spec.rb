@@ -13,7 +13,6 @@ describe "Static pages" do
     click_link "Sign up now!"
     page.should have_selector 'title', text: full_title('Sign up')
     click_link "sample app"
-    page.should_not have_selector 'title', text: full_title('| Home')
   end
   subject { page }
   shared_examples_for "all static pages" do
