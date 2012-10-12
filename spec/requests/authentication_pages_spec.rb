@@ -44,6 +44,12 @@ require 'spec_helper'
 		describe "authorization" do
 			describe "for non-signed-in users" do
 				let(:user) { FactoryGirl.create(:user) }
+				
+				describe "should not see Profile- and Settings-links" do
+					it { should_not have_link('Settings') }
+					it { should_not have_link('Profile') }
+				end
+
 				describe "when attempting to visit a protected page" do
 					before do
 						visit edit_user_path(user)
